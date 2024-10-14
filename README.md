@@ -30,6 +30,28 @@ Metode tampilkanData() dalam kelas Mahasiswa digunakan untuk menampilkan informa
 - Instansiasi objek dari class Mahasiswa dan tampilkan data mahasiswa tersebut. <br> <br>
   ![class_object](https://github.com/user-attachments/assets/30c437b6-d87c-4d64-89fe-3a6d2a40636b)
   ![image](https://github.com/user-attachments/assets/32866974-4268-4129-a986-89c6af9cef53)
+2. Implementasi Constructor <br>
+- Tambahkan constructor pada kelas Mahasiswa yang akan menginisialisasi
+atribut nama, nim, dan jurusan.
+- Gunakan constructor ini untuk mengatur nilai awal dari atribut saat objek dibuat. <br><br>
+![constructor](https://github.com/user-attachments/assets/41b60fd4-50e7-4ee8-92ea-07f313a8c04e)
+![image](https://github.com/user-attachments/assets/5c37d799-a712-4b1e-9438-8bf30e40ecf2)
+3. Membuat Metode Tambahan <br>
+- Buat metode updateJurusan() dalam kelas Mahasiswa yang memungkinkan
+perubahan jurusan.
+- Gunakan metode ini untuk mengubah jurusan dari objek yang sudah dibuat. <br><br>
+![updatejurusan](https://github.com/user-attachments/assets/2541fd5f-0cde-4a98-9afb-3d044d6b67f7)
+![image](https://github.com/user-attachments/assets/109296c0-3b44-4917-a397-21c0862b4b7e)
+4. Penggunaan Atribut dan Metode
+- Ubah nilai atribut nim dari objek Mahasiswa menggunakan metode setter.
+- Tampilkan data mahasiswa yang sudah diperbarui dengan memanggil metode tampilkanData(). <br><br>
+![atribut](https://github.com/user-attachments/assets/34dc9682-f4fa-4d6b-9504-fed063fe04a1)
+![image](https://github.com/user-attachments/assets/f546cb6d-32fe-4a11-8d73-ec18dcf45472)
+
+
+
+
+
 
 
 
