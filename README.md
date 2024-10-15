@@ -327,9 +327,34 @@ $mahasiswa1->jurusan = "Komputer dan Bisnis";
 // Menampilkan data mahasiswa dengan memanggil fungsi tampilkanData
 echo $mahasiswa1->tampilkanData();
 ```
-Baris ini membuat objek baru bernama $mahasiswa1 dari kelas Mahasiswa. Objek ini kemudian akan memiliki akses ke semua properti dan metode dalam kelas tersebut. Kemudian Baris-baris ini mengisi atribut $nama, $nim, dan $jurusan pada objek $mahasiswa1 dengan data yang sesuai. Properti diakses dengan tanda panah ->. Setelah itu, Metode tampilkanData() dipanggil pada objek $mahasiswa1, dan hasilnya dicetak menggunakan echo. Metode ini akan mengembalikan string yang berisi nama, nim, dan jurusan yang sebelumnya telah diatur. <br>
-**Coding :** <br>
-![classj2](https://github.com/user-attachments/assets/ad87934d-94d6-411f-ab01-57e0949e997d) <br>
+Baris ini membuat objek baru bernama $mahasiswa1 dari kelas Mahasiswa. Objek ini kemudian akan memiliki akses ke semua properti dan metode dalam kelas tersebut. Kemudian Baris-baris ini mengisi atribut $nama, $nim, dan $jurusan pada objek $mahasiswa1 dengan data yang sesuai. Properti diakses dengan tanda panah ->. Setelah itu, Metode tampilkanData() dipanggil pada objek $mahasiswa1, dan hasilnya dicetak menggunakan echo. Metode ini akan mengembalikan string yang berisi nama, nim, dan jurusan yang sebelumnya telah diatur. <br><br>
+**Full Coding :** <br>
+```
+<?php
+// definisi kelas Mahasiswa
+class Mahasiswa {
+    // atribut atau propeties
+    public $nama;
+    public $nim;
+    public $jurusan;
+
+    // metode tampilkan data
+    public function tampilkanData(){
+    // mengembalikan informasi nama, nim, dan jurusan
+    return "Nama saya adalah $this->nama dengan nim $this->nim, dari jurusan $this->jurusan.";}
+
+}
+// membuat objek baru dari kelas Mahasiswa
+$mahasiswa1 = new Mahasiswa ();
+// // Mengisi atribut objek mahasiswa1 dengan data
+$mahasiswa1->nama = "Vera Dupita";
+$mahasiswa1->nim = "230202067";
+$mahasiswa1->jurusan = "Komputer dan Bisnis";
+// Menampilkan data mahasiswa dengan memanggil fungsi tampilkanData
+echo $mahasiswa1->tampilkanData();
+
+?>
+```
 **Output :** <br>
 ![image](https://github.com/user-attachments/assets/a774d2dd-3ae8-4d2a-a858-cd061963c7d1) <br>
 
@@ -790,7 +815,202 @@ echo $teacher1 ->getName ();// menampilkan nama dan teacherID guru
 
 **3. Encapsulation:**
 - Ubah atribut name dan studentID dalam kelas Student menjadi private.
-- Tambahkan metode setter dan getter untuk mengakses dan mengubah nilai 
-atribut name dan studentID
+```
+<?php
+// mendefinisikan kelas Person
+class Person{
+    private $name;
+
+     // konstruktor untuk menginisialisasi atribut name
+    public function __construct($name)
+    {
+        $this->name = $name; // inisialisasi atribut name saat objek dibuat
+    }
+
+    public function getName(){ // metode untuk mengembalikan nilai atribut name
+        return $this->name; // mengembalikan nilai name
+    }
+
+    public function setName($name){ // metode untuk mengubah nilai atribut name
+        $this->name = $name; // mengubah nilai name
+    }
+}
+
+class Student extends Person{ // kelas Student merupakan turunan dari kelas Person
+    private $studentID;
+```
+Atribut name: Dideklarasikan sebagai private, sehingga hanya dapat diakses oleh metode dalam kelas ini, dan menggunakan metode getName() untuk mengembalikan nilai dari atribut name, memungkinkan akses ke nama. <br>
+Deklarasi Kelas: Kelas Student didefinisikan sebagai turunan dari kelas Person, artinya Student mewarisi semua atribut dan metode dari Person. <br>
+Atribut studentID: Dideklarasikan sebagai private, hanya dapat diakses oleh metode dalam kelas Student, dan menggunakan metode getStudentID() untuk mengembalikan nilai dari atribut studentID. 
+
+- Tambahkan metode setter dan getter untuk mengakses dan mengubah nilai atribut name dan studentID
+```
+<?php
+// mendefinisikan kelas Person
+class Person{
+    private $name;
+
+     // konstruktor untuk menginisialisasi atribut name
+    public function __construct($name)
+    {
+        $this->name = $name; // inisialisasi atribut name saat objek dibuat
+    }
+
+    public function getName(){ // metode untuk mengembalikan nilai atribut name
+        return $this->name; // mengembalikan nilai name
+    }
+
+    public function setName($name){ // metode untuk mengubah nilai atribut name
+        $this->name = $name; // mengubah nilai name
+    }
+}
+
+class Student extends Person{ // kelas Student merupakan turunan dari kelas Person
+    private $studentID;
+
+    // konstruktor untuk menginisialisasi atribut name dari kelas induk dan atribut studentID
+    public function __construct($name,$studentID){
+        parent::__construct($name); // memanggil konstruktor kelas induk
+        $this->studentID = $studentID; // inisialisasi atribut studentID
+    }
+    // metode untuk mengembalikan nilai studentID
+     public function getStudentID(){
+        return $this->studentID; // mengembalikan nilai studentID
+     }
+
+    // metode untuk mengubah nilai atribut studentID
+     public function setStudentID($studentID){
+        $this->studentID = $studentID; // mengubah nilai studentID
+     }
+}
+```
+Method getName berfungsi mengembalikan nilai dari atribut $name. Metode ini memungkinkan akses ke nama tanpa mengubah nilai secara langsung dan method setName menerima parameter $name dan mengubah nilai atribut $name. Ini memungkinkan untuk memperbarui nama orang yang terdaftar. <br>
+Method getStudentID berfungsi mengembalikan nilai dari atribut $studentID. Ini memungkinkan akses ke ID siswa dan method setStudentID menerima parameter $studentID dan mengubah nilai atribut $studentID. Ini memungkinkan pembaruan ID siswa jika diperlukan. <br><br>
+
+**Full Coding :**
+```
+<?php
+// mendefinisikan kelas Person
+class Person{
+    private $name;
+
+     // konstruktor untuk menginisialisasi atribut name
+    public function __construct($name)
+    {
+        $this->name = $name; // inisialisasi atribut name saat objek dibuat
+    }
+
+    public function getName(){ // metode untuk mengembalikan nilai atribut name
+        return $this->name; // mengembalikan nilai name
+    }
+
+    public function setName($name){ // metode untuk mengubah nilai atribut name
+        $this->name = $name; // mengubah nilai name
+    }
+}
+
+class Student extends Person{ // kelas Student merupakan turunan dari kelas Person
+    private $studentID;
+
+    // konstruktor untuk menginisialisasi atribut name dari kelas induk dan atribut studentID
+    public function __construct($name,$studentID){
+        parent::__construct($name); // memanggil konstruktor kelas induk
+        $this->studentID = $studentID; // inisialisasi atribut studentID
+    }
+    // metode untuk mengembalikan nilai studentID
+     public function getStudentID(){
+        return $this->studentID; // mengembalikan nilai studentID
+     }
+
+    // metode untuk mengubah nilai atribut studentID
+     public function setStudentID($studentID){
+        $this->studentID = $studentID; // mengubah nilai studentID
+     }
+}
+
+
+// membuat objek dari kelas Student dengan nama dan studentID
+$student1 = new Student ("Rafardhan Atala", "230101065");
+// menampilkan nama mahasiswa dan studentID yang sudah ditentukan
+echo "Mahasiswa " . $student1->getName() . " memiliki StudentID " . $student1->getStudentID() . "<br><br>";
+
+
+// mengubah nilai atribut name dan studentID menggunakan sette
+echo $student1->setName("Mark Lee");
+echo $student1->setStudentID("230203061");
+
+// menampilkan hasil setelah perubahan
+echo "<b>Setelah Nama dan StudentID diubah : </b><br>";
+echo "Mahasiswa " . $student1->getName() . " memiliki StudentID " . $student1->getStudentID() . "";
+?>
+```
+**Output :** <br>
+![image](https://github.com/user-attachments/assets/08652c20-45aa-4517-b19f-6aa428962f27)
+
+
+**4. Abstraction:**
+- Buat kelas abstrak Course dengan metode abstrak getCourseDetails().
+```
+<?php
+
+abstract class Course {
+
+      abstract public function getCourseDetails();
+
+}
+```
+Course adalah kelas abstrak yang mendefinisikan struktur dasar dari suatu jenis kelas (course) tetapi tidak memberikan implementasi secara langsung, dan kelas ini memiliki metode abstrak getCourseDetails() yang harus diimplementasikan oleh kelas turunannya. Metode abstrak ini hanya memiliki deklarasi, tetapi tidak ada implementasi (isinya kosong) karena implementasi diserahkan ke kelas turunan.
+- Buat kelas OnlineCourse dan OfflineCourse yang mengimplementasikan getCourseDetails() untuk memberikan detail yang berbeda.
+```
+class OnlineCourse extends Course{
+    public function getCourseDetails() {
+        return "Ini adalah kelas yang dilaksanakan secara zoom";
+    }
+}
+
+class OfflineCourse extends Course{
+    public function getCourseDetails() {
+        return "Hari ini kelas dilaksanakna secara tatap muka";
+    }
+}
+```
+OnlineCourse adalah kelas turunan dari Course dan mengimplementasikan metode getCourseDetails(), ketika metode getCourseDetails() dipanggil, ia mengembalikan deskripsi bahwa kelas ini dilakukan secara online melalui Zoom dan Kelas OfflineCourse juga merupakan turunan dari Course dan mengimplementasikan metode getCourseDetails(), ketika metode getCourseDetails() dipanggil, ia mengembalikan deskripsi bahwa kelas ini dilaksanakan secara tatap muka. <br><br>
+
+**Full Coding:**
+```
+<?php
+
+abstract class Course {
+
+      abstract public function getCourseDetails();
+
+}
+
+class OnlineCourse extends Course{
+    public function getCourseDetails() {
+        return "Ini adalah kelas yang dilaksanakan secara zoom";
+    }
+}
+
+class OfflineCourse extends Course{
+    public function getCourseDetails() {
+        return "Hari ini kelas dilaksanakna secara tatap muka";
+    }
+}
+
+$class1 = new OnlineCourse();
+echo "Online course : " .$class1->getCourseDetails(). "<br>";
+
+$class2 = new OfflineCourse();
+echo "Offline course : " .$class2->getCourseDetails(). "";
+
+?>
+```
+**Output :** <br>
+![image](https://github.com/user-attachments/assets/fbccfb13-c73c-4773-b93b-81924f52111c)
+
+# Tugas 1 Jobsheet 3
+
+
 
 
