@@ -1,16 +1,14 @@
 # PraktikumWeb2
 **OOP (Object-Oriented Programming)**  
-Object Oriented Programming (OOP) atau dalam bahasa Indonesia dikenal dengan Pemrograman Berorientasi Objek (PBO) merupakan sebuah paradigma atau pendekatan pengembangan perangkat lunak yang memiliki struktur berbasis objek. Objek memiliki atribut dan metode yang dapat saling berinteraksi untuk memenuhi tujuan tertentu.
+Object Oriented Programming (OOP) atau dalam bahasa Indonesia dikenal dengan Pemrograman Berorientasi Objek (PBO) merupakan sebuah paradigma atau pendekatan pengembangan perangkat lunak yang memiliki struktur berbasis objek. Objek memiliki atribut dan metode yang dapat saling berinteraksi untuk memenuhi tujuan tertentu. OOP mempermudah pengembangan dan pemeliharaan program dengan cara memecah masalah kompleks menjadi bagian-bagian kecil yang dapat digunakan kembali.
 
-
-**Materi Pokok:**
-
-### Class (Kelas)
-Kelas adalah blueprint atau cetak biru untuk objek. Kelas mendefinisikan atribut dan metode yang akan dimiliki oleh objek yang dibuat dari kelas tersebut. 
-
-- **Atribut (properties)**: Variabel yang menyimpan data untuk objek.
-- **Metode**: Fungsi yang ditentukan dalam kelas yang dapat dipanggil oleh objek.
-
+**Konsep Utama:** <br>
+- Kelas (Class): Rancangan atau cetak biru dari sebuah objek. Kelas mendefinisikan atribut (properti) dan perilaku (metode) objek.
+- Objek (Object): Instance dari kelas. Objek memiliki data dan dapat melakukan aksi sesuai dengan metode yang didefinisikan dalam kelasnya.
+- Encapsulation (Enkapsulasi): Membatasi akses ke properti dan metode suatu objek, biasanya dengan menggunakan modifier akses seperti private, public, atau protected.
+- Inheritance (Pewarisan): Kemampuan suatu kelas untuk mewarisi properti dan metode dari kelas lain, memungkinkan penggunaan kembali kode.
+- Polymorphism (Polimorfisme): Kemampuan untuk memanggil metode yang sama pada objek yang berbeda, namun hasilnya berbeda tergantung pada kelas objeknya.
+- Abstraction (Abstraksi): Menyembunyikan detail implementasi dari pengguna dan hanya menampilkan fungsionalitas penting.
 ---
 
 ### Langkah-Langkah dalam Pembuatan Kelas:
@@ -23,14 +21,22 @@ Kelas adalah blueprint atau cetak biru untuk objek. Kelas mendefinisikan atribut
    - `nama`: Menyimpan nama mahasiswa.
    - `nim`: Menyimpan Nomor Induk Mahasiswa (NIM).
    - `jurusan`: Menyimpan jurusan mahasiswa.
-
-   ![image](https://github.com/user-attachments/assets/d0047fcd-1648-49cc-b728-d5a7d8203e00)
+```
+class Mahasiswa {
+    // atribut atau propeties
+    public $nama;
+    public $nim;
+    public $jurusan;
+}
+```
 
 3. **Menentukan Metode**  
    Metode adalah fungsi atau prosedur yang dapat dilakukan oleh objek. Metode dapat digunakan untuk mengubah atau mengakses atribut.  
-
-   ![image](https://github.com/user-attachments/assets/9c8a97d4-2999-42ca-9fbb-45b05721e36d)
-
+```
+ public function tampilkanData(){
+    // mengembalikan informasi nama, nim, dan jurusan
+    return "Nama saya adalah $this->nama dengan nim $this->nim, dari jurusan $this->jurusan.";}
+```
 ---
 
 ### Atribut dan Metode
@@ -1427,11 +1433,92 @@ class Dosen extends Person {
     public function setNidn ($nidn){
         return $this->nidn = $nidn; // Mengatur nilai NIP
     }
+class Mahasiswa extends Person{
+    private $nim; 
+    private $jurusan; 
+
+    // Konstruktor untuk menginisialisasi nama, NIM, dan jurusan
+    public function __construct($nama,$nim,$jurusan)
+    {
+        parent::__construct($nama); // Memanggil konstruktor dari kelas induk
+        $this->nim = $nim; // Mengatur nilai NIM
+        $this->jurusan = $jurusan; // Mengatur nilai jurusan
+    }
+    
+    // Metode untuk mendapatkan NIM
+    public function getNim(){
+        return $this->nim; // Mengembalikan nilai NIM
+    }
+
+    // Metode untuk mengatur NIM
+    public function setNim ($nim){
+        return $this->nim = $nim; // Mengatur nilai NIM
+    }
+    
+    // Metode untuk mendapatkan jurusan
+    public function getJurusan(){
+        return $this->jurusan; // Mengembalikan nilai jurusan
+    }
+
+    // Metode untuk mengatur jurusan
+    public function setJurusan ($jurusan){
+        return $this->jurusan = $jurusan; // Mengatur nilai jurusan
+    }
 
 ```
-6. Buat kelas abstrak Jurnal dan implementasikan konsep Abstraction dengan 
-membuat kelas turunan JurnalDosen dan JurnalMahasiswa yang masing-masing 
-memiliki cara tersendiri untuk mengelola pengajuan jurnal. <br>
+Atribut seperti $nidn, $matakuliah di kelas Dosen, dan $nim, $jurusan di kelas Mahasiswa menggunakan modifier private. Ini berarti atribut tersebut hanya bisa diakses dan dimodifikasi di dalam kelas itu sendiri. Untuk mengakses atau memodifikasi nilai atribut yang private, digunakan metode getter dan setter. Contohnya: getNidn() dan setNidn() di kelas Dosen digunakan untuk mengambil dan mengatur nilai dari atribut $nidn dan getJurusan() dan setJurusan() di kelas Mahasiswa digunakan untuk mengakses dan mengatur nilai dari atribut $jurusan. <br>
+
+
+5. Buat kelas abstrak Jurnal dan implementasikan konsep Abstraction dengan membuat kelas turunan JurnalDosen dan JurnalMahasiswa yang masing-masing memiliki cara tersendiri untuk mengelola pengajuan jurnal.
+```
+// Kelas abstrak Jurnal
+abstract class Jurnal {
+    abstract public function getBuatJurnal(); // Metode abstrak untuk membuat jurnal
+}
+
+// Kelas untuk jurnal dosen yang mewarisi dari Jurnal
+class JurnalDosen extends Jurnal{
+    private $dosen; 
+    
+    // Konstruktor untuk menginisialisasi dosen
+    public function __construct($dosen)
+    {
+        $this->dosen = $dosen; // Mengatur nilai dosen
+    }
+    
+    // Metode untuk mendapatkan dosen
+    public function getDosen(){
+        return $this->dosen; // Mengembalikan nilai dosen
+    }
+
+    // Implementasi metode abstrak untuk membuat jurnal dosen
+    public function getBuatJurnal(){
+        return "Jurnal Dosen : $this->dosen"; // Mengembalikan informasi jurnal dosen
+    }
+}
+
+// Kelas untuk jurnal mahasiswa yang mewarisi dari Jurnal
+class JurnalMahasiswa extends Jurnal{
+    private $mahasiswa; 
+    
+    // Konstruktor untuk menginisialisasi mahasiswa
+    public function __construct($mahasiswa)
+    {
+        $this->mahasiswa = $mahasiswa; // Mengatur nilai mahasiswa
+    }
+
+    // Metode untuk mendapatkan mahasiswa
+    public function getMahasiswa(){
+        return $this->mahasiswa; // Mengembalikan nilai mahasiswa
+    }
+
+    // Implementasi metode abstrak untuk membuat jurnal mahasiswa
+    public function getBuatJurnal(){
+        return "Jurnal Mahasiswa : $this->mahasiswa"; // Mengembalikan informasi jurnal mahasiswa
+    }
+}
+```
+Terdapat sebuah kelas abstrak bernama Jurnal yang mendefinisikan metode abstrak getBuatJurnal() tanpa implementasi. Kelas ini tidak bisa diinstansiasi langsung, sehingga kelas turunannya, yaitu JurnalDosen dan JurnalMahasiswa, wajib mengimplementasikan metode tersebut sesuai konteksnya. Kelas JurnalDosen digunakan untuk jurnal yang berkaitan dengan dosen, sedangkan JurnalMahasiswa digunakan untuk jurnal yang berkaitan dengan mahasiswa. Masing-masing kelas turunan mengimplementasikan metode getBuatJurnal() untuk mengembalikan informasi sesuai dengan objek yang mereka tangani (dosen atau mahasiswa) <br><br>
 
 **Hasil Coding :**
 ```
@@ -1608,6 +1695,10 @@ echo "<br>";
 echo $jurnal2->getBuatJurnal(); // Menampilkan informasi jurnal mahasiswa
 ?>
 ```
+**Output :**
+
+![image](https://github.com/user-attachments/assets/f18ce963-8729-405f-9960-feb3567c60c5)
+
 
 
 
