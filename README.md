@@ -1283,8 +1283,7 @@ class Person {
 ```
 - Class Person adalah kelas dasar yang memiliki properti $nama yang dilindungi (protected) dan metode untuk mengatur (setNama) dan mendapatkan (getNama) nilai nama dan memiliki metode abstrak getRole() yang harus diimplementasikan oleh kelas turunannya. <br>
 
-2. Gunakan konsep Inheritance untuk membuat hierarki kelas yang memungkinkan 
-Dosen dan Mahasiswa memiliki atribut dan metode yang sesuai dengan perannya
+2. Gunakan konsep Inheritance untuk membuat hierarki kelas yang memungkinkan Dosen dan Mahasiswa memiliki atribut dan metode yang sesuai dengan perannya
 ```
 // Kelas Dosen yang mewarisi dari Person
 class Dosen extends Person {
@@ -1400,9 +1399,36 @@ public function getRole(){
     
 }
 ```
+- Pada class Person memiliki metode abstrak getRole() yang harus diimplementasikan oleh kelas turunannya.
+- Di kelas Person, metode getRole() hanya mengembalikan nilai dari properti $nama. Namun, di kelas Dosen, metode ini di-override untuk menambahkan informasi yang lebih spesifik tentang dosen, seperti NIP dan mata kuliah yang diajarkan.
+- Di kelas Person, metode getRole() juga di-override oleh kelas Mahasiswa untuk memberikan informasi yang lebih lengkap tentang mahasiswa, termasuk NIM dan jurusan.
 
-5. Gunakan Encapsulation untuk melindungi atribut nidn di kelas Dosen dan nim di 
-kelas Mahasiswa. <br>
+4. Gunakan Encapsulation untuk melindungi atribut nidn di kelas Dosen dan nim di 
+kelas Mahasiswa.
+```
+class Dosen extends Person {
+    private $nidn; 
+    private $matakuliah; 
+
+    // Konstruktor untuk menginisialisasi nama, NIDN, dan mata kuliah
+    public function __construct($nama,$nidn,$matakuliah)
+    {
+        parent::__construct($nama); // Memanggil konstruktor dari kelas induk
+        $this->nidn =  $nidn; // Mengatur nilai NIDN
+        $this->matakuliah = $matakuliah; // Mengatur nilai mata kuliah
+    }
+
+    // Metode untuk mendapatkan NIP
+    public function getNidn(){
+        return $this->nidn; // Mengembalikan nilai NIP
+    }
+
+    // Metode untuk mengatur NIP
+    public function setNidn ($nidn){
+        return $this->nidn = $nidn; // Mengatur nilai NIP
+    }
+
+```
 6. Buat kelas abstrak Jurnal dan implementasikan konsep Abstraction dengan 
 membuat kelas turunan JurnalDosen dan JurnalMahasiswa yang masing-masing 
 memiliki cara tersendiri untuk mengelola pengajuan jurnal. <br>
