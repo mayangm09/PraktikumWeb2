@@ -28,35 +28,35 @@ class Person {
 
 // Kelas Dosen yang mewarisi dari Person
 class Dosen extends Person {
-    private $nip; 
+    private $nidn; 
     private $matakuliah; 
 
-    // Konstruktor untuk menginisialisasi nama, NIP, dan mata kuliah
-    public function __construct($nama,$nip,$matakuliah)
+    // Konstruktor untuk menginisialisasi nama, NIDN, dan mata kuliah
+    public function __construct($nama,$nidn,$matakuliah)
     {
         parent::__construct($nama); // Memanggil konstruktor dari kelas induk
-        $this->nip =  $nip; // Mengatur nilai NIP
+        $this->nidn =  $nidn; // Mengatur nilai NIDN
         $this->matakuliah = $matakuliah; // Mengatur nilai mata kuliah
     }
 
-    // Metode untuk mendapatkan NIP
-    public function getNip(){
-        return $this->nip; // Mengembalikan nilai NIP
+    // Metode untuk mendapatkan NIDN
+    public function getNidn(){
+        return $this->nidn; // Mengembalikan nilai NIDN
     }
 
-    // Metode untuk mengatur NIP
-    public function setNip ($nip){
-        return $this->nip = $nip; // Mengatur nilai NIP
+    // Metode untuk mengatur NIDN
+    public function setNidn ($nidn){
+        $this->nidn = $nidn; // Mengatur nilai NIDN
     }
     
     // Metode untuk mendapatkan mata kuliah
-    public function geMatakuliah(){
+    public function getMatakuliah(){
         return $this->matakuliah; // Mengembalikan nilai mata kuliah
     }
 
     // Metode untuk mengatur mata kuliah
     public function setMatakuliah ($matakuliah){
-        return $this->matakuliah = $matakuliah; // Mengatur nilai mata kuliah
+        $this->matakuliah = $matakuliah; // Mengatur nilai mata kuliah
     }
 
     // Implementasi metode getRole untuk kelas Dosen
@@ -84,8 +84,8 @@ class Mahasiswa extends Person{
     }
 
     // Metode untuk mengatur NIM
-    public function setNip ($nim){
-        return $this->nim = $nim; // Mengatur nilai NIM
+    public function setNim ($nim){
+        $this->nim = $nim; // Mengatur nilai NIM
     }
     
     // Metode untuk mendapatkan jurusan
@@ -95,7 +95,7 @@ class Mahasiswa extends Person{
 
     // Metode untuk mengatur jurusan
     public function setJurusan ($jurusan){
-        return $this->jurusan = $jurusan; // Mengatur nilai jurusan
+        $this->jurusan = $jurusan; // Mengatur nilai jurusan
     }
 
     // Implementasi metode getRole untuk kelas Mahasiswa
