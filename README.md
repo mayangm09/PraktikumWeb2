@@ -1,11 +1,9 @@
 # PraktikumWeb2
-
 **OOP (Object-Oriented Programming)**  
 Object Oriented Programming (OOP) atau dalam bahasa Indonesia dikenal dengan Pemrograman Berorientasi Objek (PBO) merupakan sebuah paradigma atau pendekatan pengembangan perangkat lunak yang memiliki struktur berbasis objek. Objek memiliki atribut dan metode yang dapat saling berinteraksi untuk memenuhi tujuan tertentu.
 
----
 
-## Materi Pokok:
+**Materi Pokok:**
 
 ### Class (Kelas)
 Kelas adalah blueprint atau cetak biru untuk objek. Kelas mendefinisikan atribut dan metode yang akan dimiliki oleh objek yang dibuat dari kelas tersebut. 
@@ -46,12 +44,13 @@ Metode `tampilkanData()` dalam kelas `Mahasiswa` digunakan untuk menampilkan inf
 
 ---
 
-# JOB Sheet 1
+# Job Sheet 1
 
 **INTRUKSI KERJA :**
 
-1. **Membuat Class dan Object**
-   - Buat class `Mahasiswa` yang memiliki atribut `nama`, `nim`, dan `jurusan`.
+1. **Membuat Class dan Object** <br>
+
+a) Buat class `Mahasiswa` yang memiliki atribut `nama`, `nim`, dan `jurusan`.
 ```
 <?php
 // definisi kelas Mahasiswa
@@ -67,7 +66,7 @@ class Mahasiswa {
    - **nim**: Menyimpan Nomor Induk Mahasiswa (NIM).
    - **jurusan**: Menyimpan jurusan mahasiswa.
 
-   - Buat metode `tampilkanData()` dalam class `Mahasiswa`.
+b) Buat metode `tampilkanData()` dalam class `Mahasiswa`.
 ```
 // metode tampilkan data
     public function tampilkanData(){
@@ -76,7 +75,7 @@ class Mahasiswa {
 ``` 
    **Metode tampilkanData**: Di dalam kelas, ada sebuah metode bernama tampilkanData. Metode ini berfungsi untuk mengembalikan string yang berisi informasi tentang nama, NIM, dan jurusan mahasiswa. Di dalam metode ini, digunakan kata kunci return untuk mengembalikan teks yang mencakup atribut kelas ($this->nama, $this->nim, dan $this->jurusan).
    
-   - Instansiasi objek dari class `Mahasiswa` dan tampilkan data mahasiswa tersebut.
+c) Instansiasi objek dari class `Mahasiswa` dan tampilkan data mahasiswa tersebut.
 ```
 // membuat objek baru dari kelas Mahasiswa
 $mahasiswa1 = new Mahasiswa ();
@@ -93,8 +92,9 @@ echo $mahasiswa1->tampilkanData();
    **Output :**  
    ![image](https://github.com/user-attachments/assets/1a804d6f-51d6-4e3a-af3a-6907a6ab56bf)
 
-2. **Implementasi Constructor**
-   - Tambahkan constructor pada kelas `Mahasiswa` yang akan menginisialisasi atribut `nama`, `nim`, dan `jurusan`.
+2. **Implementasi Constructor** <br>
+
+a) Tambahkan constructor pada kelas `Mahasiswa` yang akan menginisialisasi atribut `nama`, `nim`, dan `jurusan`.
 ```
 // constructor kelas mahasiswa untuk menginisialisasi atribut objek
     public function __construct($nama, $nim, $jurusan)
@@ -104,7 +104,7 @@ echo $mahasiswa1->tampilkanData();
         $this->jurusan = $jurusan;
     }
 ```
-   - Gunakan constructor ini untuk mengatur nilai awal dari atribut saat objek dibuat.
+b) Gunakan constructor ini untuk mengatur nilai awal dari atribut saat objek dibuat.
 ```
 // membuat objek baru dari kelas Mahasiswa dengan memberikan parameter nama, nim, dan jurusan
 $mahasiswa1 = new Mahasiswa ("Vera Dupita", "230202067", "Komputer dan Bisnis");
@@ -123,9 +123,10 @@ echo $mahasiswa1->tampilkanData(); // menampilkan data mahasiswa dengan memanggi
    **Output :**  
    ![image](https://github.com/user-attachments/assets/7511b5df-6d40-4486-9ab5-f260fadac338)
 
-3. **Membuat Metode Tambahan**
-   - Buat metode `updateJurusan()` dalam kelas `Mahasiswa` yang memungkinkan perubahan jurusan.
-   - Gunakan metode ini untuk mengubah jurusan dari objek yang sudah dibuat.  
+3. **Membuat Metode Tambahan** <br>
+
+a) Buat metode `updateJurusan()` dalam kelas `Mahasiswa` yang memungkinkan perubahan jurusan. <br>
+b) Gunakan metode ini untuk mengubah jurusan dari objek yang sudah dibuat.  
 ```
   // metode tampilkan data
     public function tampilkanData(){
@@ -166,9 +167,10 @@ echo $mahasiswa1->tampilkanData(); //menampilkan data setelah update jurusan
    **Output :**  
    ![image](https://github.com/user-attachments/assets/109296c0-3b44-4917-a397-21c0862b4b7e)
 
-4. **Penggunaan Atribut dan Metode**
-   - Ubah nilai atribut `nim` dari objek `Mahasiswa` menggunakan metode setter.
-   - Tampilkan data mahasiswa yang sudah diperbarui dengan memanggil metode `tampilkanData()`.  
+4. **Penggunaan Atribut dan Metode** <br>
+
+a) Ubah nilai atribut `nim` dari objek `Mahasiswa` menggunakan metode setter. <br>
+b) Tampilkan data mahasiswa yang sudah diperbarui dengan memanggil metode `tampilkanData()`.  
 ```
  // metode tampilkan data
     public function tampilkanData(){
@@ -296,8 +298,9 @@ class dosen {
 
 **INTRUKSI KERJA :**
 
-**1. Membuat Class dan Object**
-- Buat class Mahasiswa yang memiliki atribut nama, nim, dan jurusan. <br>
+**1. Membuat Class dan Object** <br>
+
+a) Buat class Mahasiswa yang memiliki atribut nama, nim, dan jurusan. <br>
 ```
 <?php
 // definisi kelas Mahasiswa
@@ -307,16 +310,16 @@ class Mahasiswa {
     public $nim;
     public $jurusan;
 ```
-Bagian ini mendefinisikan kelas Mahasiswa yang berisi atribut (properti) nama, nim, dan jurusan. Atribut menggunakan akses public sehingga bisa diakses dari luar kelas.
-- Buat metode tampilkanData() dalam class Mahasiswa.
+Bagian ini mendefinisikan kelas Mahasiswa yang berisi atribut (properti) nama, nim, dan jurusan. Atribut menggunakan akses public sehingga bisa diakses dari luar kelas. <br><br>
+b) Buat metode tampilkanData() dalam class Mahasiswa.
 ```
 // metode tampilkan data
     public function tampilkanData(){
     // mengembalikan informasi nama, nim, dan jurusan
     return "Nama saya adalah $this->nama dengan nim $this->nim, dari jurusan $this->jurusan.";}
 ```
-Metode tampilkanData dideklarasikan sebagai public. Fungsi ini akan mengembalikan string yang berisi informasi tentang nama, nim, dan jurusan mahasiswa. Penggunaan $this-> merujuk pada atribut yang ada di dalam objek saat ini.
-- Instansiasi objek dari class Mahasiswa dan tampilkan data mahasiswa tersebut.
+Metode tampilkanData dideklarasikan sebagai public. Fungsi ini akan mengembalikan string yang berisi informasi tentang nama, nim, dan jurusan mahasiswa. Penggunaan $this-> merujuk pada atribut yang ada di dalam objek saat ini. <br><br>
+c) Instansiasi objek dari class Mahasiswa dan tampilkan data mahasiswa tersebut.
 ```
 // membuat objek baru dari kelas Mahasiswa
 $mahasiswa1 = new Mahasiswa ();
@@ -358,8 +361,9 @@ echo $mahasiswa1->tampilkanData();
 **Output :** <br>
 ![image](https://github.com/user-attachments/assets/a774d2dd-3ae8-4d2a-a858-cd061963c7d1) <br>
 
-**2. Encapsulation**
-- Ubah atribut dalam class Mahasiswa menjadi private.
+**2. Encapsulation** <br>
+
+a) Ubah atribut dalam class Mahasiswa menjadi private.
 ```
 <?php
 // mendifinisikan kelas Mahasiswa
@@ -368,8 +372,8 @@ class Mahasiswa {
     private $nim;
     private $jurusan;
 ```
-Bagian ini mendefinisikan kelas Mahasiswa dengan atribut $nama, $nim, dan $jurusan. Atribut ini bersifat private, yang artinya tidak bisa diakses langsung dari luar kelas, hanya bisa diakses melalui metode getter dan setter.
-- Buat metode getter dan setter untuk atribut nama, nim, dan jurusan.
+Bagian ini mendefinisikan kelas Mahasiswa dengan atribut $nama, $nim, dan $jurusan. Atribut ini bersifat private, yang artinya tidak bisa diakses langsung dari luar kelas, hanya bisa diakses melalui metode getter dan setter. <br><br>
+b) Buat metode getter dan setter untuk atribut nama, nim, dan jurusan.
 ```
 public function getNama(){ //metode untuk mendapatkan nilai nama
         return $this->nama;
@@ -395,13 +399,15 @@ public function getNama(){ //metode untuk mendapatkan nilai nama
         $this->jurusan = $jurusan;
     }
 ```
-a) getNama berfungsi untuk mengambil nilai dari atribut $nama, yang bersifat private. Karena $nama tidak bisa diakses langsung dari luar kelas, metode ini memungkinkan         kita mengakses nilainya secara tidak langsung. <br>
-b) setNama berfungsi untuk mengatur nilai dari atribut $nama. Metode ini menerima parameter $nama yang kemudian digunakan untuk memperbarui nilai atribut $nama dalam           objek. <br>
-c) getNim berfungsi untuk mengambil nilai dari atribut $nim, yang bersifat private. Karena $nim tidak bisa diakses langsung dari luar kelas, metode ini digunakan untuk         mengakses nilainya. <br>
-d) setNim berfungsi untuk mengatur nilai dari atribut $nim. Metode ini menerima parameter $nim yang akan digunakan untuk memperbarui nilai atribut $nim. <br>
-e) getJurusan berfungsi untuk mengambil nilai dari atribut $jurusan, yang bersifat private. Metode ini memungkinkan kita mengakses nilai $jurusan secara tidak langsung dari luar kelas. <br>
-f) setJurusan berfungsi untuk mengatur nilai dari atribut $jurusan. Metode ini menerima parameter $jurusan yang akan digunakan untuk memperbarui nilai atribut $jurusan.
-   - Demonstrasikan akses ke atribut menggunakan metode getter dan setter
+ - getNama berfungsi untuk mengambil nilai dari atribut $nama, yang bersifat private. Karena $nama tidak bisa diakses langsung dari luar kelas, metode ini memungkinkan         kita mengakses nilainya secara tidak langsung. <br>
+ - setNama berfungsi untuk mengatur nilai dari atribut $nama. Metode ini menerima parameter $nama yang kemudian digunakan untuk memperbarui nilai atribut $nama dalam           objek. <br>
+ - getNim berfungsi untuk mengambil nilai dari atribut $nim, yang bersifat private. Karena $nim tidak bisa diakses langsung dari luar kelas, metode ini digunakan untuk         mengakses nilainya. <br>
+ - setNim berfungsi untuk mengatur nilai dari atribut $nim. Metode ini menerima parameter $nim yang akan digunakan untuk memperbarui nilai atribut $nim. <br>
+ - getJurusan berfungsi untuk mengambil nilai dari atribut $jurusan, yang bersifat private. Metode ini memungkinkan kita mengakses nilai $jurusan secara tidak langsung 
+   dari luar kelas. <br>
+ - setJurusan berfungsi untuk mengatur nilai dari atribut $jurusan. Metode ini menerima parameter $jurusan yang akan digunakan untuk memperbarui nilai atribut $jurusan. <br>
+ 
+ c) Demonstrasikan akses ke atribut menggunakan metode getter dan setter
 ```
 // membuat objek mahasiswa1 dari kelas Mahasiswa dengan data tertentu
 $mahasiswa1 = new Mahasiswa("Dina Ayu", "230102069", "Komputer dan Bisnis");
