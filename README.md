@@ -1697,7 +1697,14 @@ echo $jurnal2->getBuatJurnal(); // Menampilkan informasi jurnal mahasiswa
 ```
 **Output :**
 
-![image](https://github.com/user-attachments/assets/f18ce963-8729-405f-9960-feb3567c60c5)
+![image](https://github.com/user-attachments/assets/f18ce963-8729-405f-9960-feb3567c60c5) <br> <br>
+
+Kode di atas menerapkan beberapa konsep dasar dalam Object-Oriented Programming (OOP), yaitu:
+
+- Encapsulation (Enkapsulasi): Enkapsulasi diterapkan melalui penggunaan properti yang bersifat private dan protected pada kelas-kelas, seperti nama, nidn, dan matakuliah. Ini memastikan bahwa data tersebut hanya dapat diakses melalui metode yang disediakan, seperti getNidn(), setNidn(), dan getMatakuliah().
+- Inheritance (Pewarisan): Pada kode ini, kelas Dosen dan Mahasiswa mewarisi properti dan metode dari kelas Person. Mereka juga meng-override metode getRole(), yang berarti mereka memberikan implementasi yang berbeda dari metode yang sama yang didefinisikan di kelas induk. Ini menunjukkan bagaimana subclass dapat memperluas atau memodifikasi perilaku dari kelas induk.
+- Polymorphism (Polimorfisme): Polimorfisme memungkinkan objek dari kelas turunan (seperti Dosen dan Mahasiswa) untuk digunakan sebagai objek dari kelas induknya. Dalam hal ini, metode getRole() memberikan hasil yang berbeda tergantung pada apakah objek tersebut adalah Dosen atau Mahasiswa. Konsep ini juga diterapkan pada kelas abstrak Jurnal dengan metode abstrak getBuatJurnal(), di mana kelas JurnalDosen dan JurnalMahasiswa mengimplementasikan metode tersebut dengan cara yang berbeda.
+- Abstraction (Abstraksi): Kelas Jurnal adalah contoh dari abstraksi. Kelas ini hanya mendefinisikan kerangka dari apa yang akan dilakukan tanpa memberikan detail implementasinya. Kelas turunan seperti JurnalDosen dan JurnalMahasiswa harus memberikan implementasi untuk metode abstrak getBuatJurnal(). Ini sesuai dengan prinsip abstraksi, yaitu menyembunyikan detail yang tidak perlu dan hanya menampilkan fungsi penting.
 
 
 
