@@ -1477,44 +1477,34 @@ abstract class Jurnal {
 }
 
 // Kelas untuk jurnal dosen yang mewarisi dari Jurnal
-class JurnalDosen extends Jurnal{
+class JurnalDosen extends Jurnal {
     private $dosen; 
     
     // Konstruktor untuk menginisialisasi dosen
-    public function __construct($dosen)
+    public function __construct(Dosen $dosen) // Menggunakan objek Dosen
     {
         $this->dosen = $dosen; // Mengatur nilai dosen
-    }
-    
-    // Metode untuk mendapatkan dosen
-    public function getDosen(){
-        return $this->dosen; // Mengembalikan nilai dosen
     }
 
     // Implementasi metode abstrak untuk membuat jurnal dosen
     public function getBuatJurnal(){
-        return "Jurnal Dosen : $this->dosen"; // Mengembalikan informasi jurnal dosen
+        return "Jurnal Dosen: " . $this->dosen->getNama() . " dapat mengajukan pembuatan Jurnal sesuai dengan Hak Akses yang diberikan"; 
     }
 }
 
 // Kelas untuk jurnal mahasiswa yang mewarisi dari Jurnal
-class JurnalMahasiswa extends Jurnal{
+class JurnalMahasiswa extends Jurnal {
     private $mahasiswa; 
     
     // Konstruktor untuk menginisialisasi mahasiswa
-    public function __construct($mahasiswa)
+    public function __construct(Mahasiswa $mahasiswa) // Menggunakan objek Mahasiswa
     {
         $this->mahasiswa = $mahasiswa; // Mengatur nilai mahasiswa
     }
 
-    // Metode untuk mendapatkan mahasiswa
-    public function getMahasiswa(){
-        return $this->mahasiswa; // Mengembalikan nilai mahasiswa
-    }
-
     // Implementasi metode abstrak untuk membuat jurnal mahasiswa
     public function getBuatJurnal(){
-        return "Jurnal Mahasiswa : $this->mahasiswa"; // Mengembalikan informasi jurnal mahasiswa
+        return "Jurnal Mahasiswa: " . $this->mahasiswa->getNama() . " dapat mengakses Jurnal atau membuat Jurnal jika mempunyai akses"; 
     }
 }
 ```
