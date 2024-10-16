@@ -111,55 +111,44 @@ abstract class Jurnal {
 }
 
 // Kelas untuk jurnal dosen yang mewarisi dari Jurnal
-class JurnalDosen extends Jurnal{
+class JurnalDosen extends Jurnal {
     private $dosen; 
     
     // Konstruktor untuk menginisialisasi dosen
-    public function __construct($dosen)
+    public function __construct(Dosen $dosen) // Menggunakan objek Dosen
     {
         $this->dosen = $dosen; // Mengatur nilai dosen
-    }
-    
-    // Metode untuk mendapatkan dosen
-    public function getDosen(){
-        return $this->dosen; // Mengembalikan nilai dosen
     }
 
     // Implementasi metode abstrak untuk membuat jurnal dosen
     public function getBuatJurnal(){
-        return "Jurnal Dosen : $this->dosen"; // Mengembalikan informasi jurnal dosen
+        return "Jurnal Dosen: " . $this->dosen->getNama() . " dapat mengajukan pembuatan Jurnal sesuai dengan Hak Akses yang diberikan"; 
     }
 }
 
 // Kelas untuk jurnal mahasiswa yang mewarisi dari Jurnal
-class JurnalMahasiswa extends Jurnal{
+class JurnalMahasiswa extends Jurnal {
     private $mahasiswa; 
     
     // Konstruktor untuk menginisialisasi mahasiswa
-    public function __construct($mahasiswa)
+    public function __construct(Mahasiswa $mahasiswa) // Menggunakan objek Mahasiswa
     {
         $this->mahasiswa = $mahasiswa; // Mengatur nilai mahasiswa
     }
 
-    // Metode untuk mendapatkan mahasiswa
-    public function getMahasiswa(){
-        return $this->mahasiswa; // Mengembalikan nilai mahasiswa
-    }
-
     // Implementasi metode abstrak untuk membuat jurnal mahasiswa
     public function getBuatJurnal(){
-        return "Jurnal Mahasiswa : $this->mahasiswa"; // Mengembalikan informasi jurnal mahasiswa
+        return "Jurnal Mahasiswa: " . $this->mahasiswa->getNama() . " dapat mengakses Jurnal atau membuat Jurnal jika mempunyai akses"; 
     }
 }
-
 // Membuat objek Dosen
 $dosen1 = new Dosen ("Keysha Meinava","456798341", "Alpro");
 // Membuat objek Mahasiswa
 $mahasiswa1 = new Mahasiswa ("Mayang Maharani", "230101089","Elektronika");
 // Membuat objek Jurnal Dosen
-$jurnal1 = new JurnalDosen ("Dosen dapat mengajukan pembuatan Jurnal sesuai dengan Hak Akses yang diberikan");
+$jurnal1 = new JurnalDosen($dosen1);
 // Membuat objek Jurnal Mahasiswa
-$jurnal2 = new JurnalMahasiswa ("Mahasiswa dapat mengakses Jurnal atau membuat Jurnal jika mempunyai akses") ;
+$jurnal2 = new JurnalMahasiswa($mahasiswa1);
 
 // Menampilkan informasi
 echo $dosen1->getRole(); // Menampilkan peran dosen
@@ -169,4 +158,4 @@ echo "<br>";
 echo $jurnal1->getBuatJurnal(); // Menampilkan informasi jurnal dosen
 echo "<br>";
 echo $jurnal2->getBuatJurnal(); // Menampilkan informasi jurnal mahasiswa
-?>
+
